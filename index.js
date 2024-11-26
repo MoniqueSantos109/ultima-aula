@@ -4,7 +4,8 @@ import session from 'express-session';
 
 import cookieParser from 'cookie-parser';
 
-const app = express();
+import path from "path";
+
 
 app.use(session({
     secret: 'Minh4Chav353cr3t4',
@@ -22,9 +23,7 @@ app.use(cookieParser());
 
 app.use(express.urlencoded({ extended: true}))
 
-
-
-app.use(express.static('./pages/public'));
+app.use(express.static(path.join(process.cwd(), 'pages/public')));
 
 const porta = 3000;
 const host = '0.0.0.0';
